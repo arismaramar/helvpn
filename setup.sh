@@ -215,13 +215,11 @@ wget https://raw.githubusercontent.com/arismaramar/helvpn/main/sshws/insshws.sh 
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
-
 if [ "$BASH" ]; then
   if [ -f ~/.bashrc ]; then
     . ~/.bashrc
   fi
 fi
-
 mesg n || true
 clear
 menu
@@ -238,7 +236,6 @@ if [ ! -f "/etc/log-create-user.log" ]; then
 echo "Log All Account " > /etc/log-create-user.log
 fi
 history -c
-serverV=$( curl -sS https://raw.githubusercontent.com/adammoi/netnot/main/versi  )
 echo $serverV > /opt/.ver
 aureb=$(cat /home/re_otm)
 b=11
@@ -261,6 +258,19 @@ rm -rf wondershaper
 echo > /home/limit
 apt install msmtp-mta ca-certificates bsd-mailx -y
 cat << EOF > /etc/msmtprc
+defaults
+tls on
+tls_starttls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+account default
+host mail.HACKERS.com
+port 587
+auth on
+user admin@HACKERS.com
+from admin@HACKERS.com
+password Peciajaib752##
+logfile ~/.msmtp.log
+EOF
 echo " "
 echo "=====================-[ anggunVPN ]-===================="
 echo ""
