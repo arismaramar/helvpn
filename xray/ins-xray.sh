@@ -55,14 +55,26 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 
 
 ## crt xray
-systemctl stop nginx
-mkdir /root/.acme.sh
-curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
-chmod +x /root/.acme.sh/acme.sh
-/root/.acme.sh/acme.sh --upgrade --auto-upgrade
-/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-/root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
-~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
+#systemctl stop nginx
+#mkdir /root/.acme.sh
+#curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
+#chmod +x /root/.acme.sh/acme.sh
+#/root/.acme.sh/acme.sh --upgrade --auto-upgrade
+#/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+#/root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
+#~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
+
+# Install Certificate xray
+curl https://get.acme.sh | sh
+ufw disable >/dev/null 2>&1
+systemctl stop nginx >/dev/null 2>&1
+~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+~/.acme.sh/acme.sh --register-account -m netz@$domain
+~/.acme.sh/acme.sh --issue -d $domain --standalone --server letsencrypt
+~/.acme.sh/acme.sh --installcert -d $domain --key-file /etc/adi/adi.key --fullchain-file /etc/adi/adi.crt
+# Timpa Text
+
+
 
 # nginx renew ssl
 echo -n '#!/bin/bash
