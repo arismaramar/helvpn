@@ -247,13 +247,13 @@ kernelku=$(uname -r)
 
 # DNS PATCH
 #tipeos2=$(uname -m)
-Name=$(curl -sS https://raw.githubusercontent.com/HelgaIlham/helvpn/main/anjay/allow | grep $MYIP | awk '{print $2}')
-Exp=$(curl -sS https://raw.githubusercontent.com/HelgaIlham/helvpn/main/anjay/allow | grep $MYIP | awk '{print $3}')
+Name=$(curl -sS https://raw.githubusercontent.com/arismaramar/helvpn/main/anjay/allow | grep $MYIP | awk '{print $2}')
+Exp=$(curl -sS https://raw.githubusercontent.com/arismaramar/helvpn/main/anjay/allow | grep $MYIP | awk '{print $3}')
 # GETTING DOMAIN NAME
 Domen="$(cat /etc/xray/domain)"
 echo -e ""
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "\E[44;1;39m              ⇱ HELGA SYSTEM INFORMATION ⇲      \E[0m"
+echo -e "\E[44;1;39m              ⇱ ANGGUN-VPN SYSTEM INFORMATION ⇲      \E[0m"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo -e "❇️ Hostname    : $HOSTNAME"
 echo -e "❇️ OS Name     : $Tipe"
@@ -265,13 +265,13 @@ echo -e "❇️ Total RAM   : ${totalram}MB"
 echo -e "❇️ Public IP   : $MYIP"
 echo -e "❇️ Domain      : $Domen"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "\E[44;1;39m          ⇱ HELGA SUBSCRIPTION INFORMATION ⇲          \E[0m"
+echo -e "\E[44;1;39m          ⇱ ANGGUN-VPN SUBSCRIPTION INFORMATION ⇲          \E[0m"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo -e "❇️ Client Name : $Name"
 echo -e "❇️ Exp Script  : $Exp"
 echo -e "❇️ Version     : Latest Version"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "\E[44;1;39m            ⇱ HELGA SERVICE INFORMATION ⇲             \E[0m"
+echo -e "\E[44;1;39m            ⇱ ANGGUN-VPN SERVICE INFORMATION ⇲             \E[0m"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo -e "❇️ SSH / TUN               :$status_ssh"
 echo -e "❇️ OpenVPN                 :$status_openvpn"
