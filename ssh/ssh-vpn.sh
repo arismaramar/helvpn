@@ -20,7 +20,7 @@ commonname=none
 email=adamspx17@gmail.com
 
 # simple password minimal
-curl -sS https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
+curl -sS https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -128,17 +128,23 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/nginx.conf"
 mkdir -p /home/vps/public_html
 /etc/init.d/nginx restart
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/newudpgw"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/newudpgw"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500' /etc/rc.local
+sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7400 --max-clients 500' /etc/rc.local
+sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7500 --max-clients 500' /etc/rc.local
+sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7600 --max-clients 500' /etc/rc.local
+sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7700 --max-clients 500' /etc/rc.local
+sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7800 --max-clients 500' /etc/rc.local
+sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900 --max-clients 500' /etc/rc.local
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500
@@ -148,7 +154,6 @@ screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7600 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7700 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7800 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900 --max-clients 500
-
 # setting port ssh
 cd
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
@@ -248,13 +253,32 @@ chmod +x /etc/issue.net
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 cat> /etc/issue.net << END
-<font color="red"><b>============================</b></font><br> 
-<font color="white"><b>         HELGA VPN SERVICE        </b></font><br> 
-<font color="red"><b>============================</b></font>
+<br>
+<strong>[server hosted on website]<strong><br>
+<font color="red" size="50"><b>DILARANG ILLEGAL CONTEN/DDOS/MULTI LOGIN</b></font><br>
+<font color="blue" size="50"><b>MELANGGAR AUTO BANED</b></font><br>
+<font color="blue" size="50"><b>https://t.me/arismaramar</b></font><br>
+<font color="blue" size="50"><b>https://wa.me/+6285365581599</b></font><br>
+## gabung group utk udate config
+<font color="blue" size="50"><b>https://chat.whatsapp.com/BhVLmdLKxfkGsf6zO5vjrD</b></font><br>
+<br>
+<font color="blue"><b>================================</b>
+</font><br> MELANGGAR  <br> AUTOO  BANED <br>
+<font color="blue"><b>================================</b></font><br>
+<font color="green"><b> ANGGUN-VPN.MY.ID  </b></font><br>
+<font color="blue"><b> ================================</b></font><br>
+<font color="red"><b> Auto Reboot Server : 05.00 </b></font><br>
+<br>
+<font color="red"><b> *
+* </b></font><br>
+<font color="blue"><b>-{------ANGGUN-VPN.MY.ID------}-</font><br>
+<font color="white"><b> *
+* </b></font><br >
+<br>
 END
 
 #install bbr dan optimasi kernel
-wget https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+wget https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 
 # blockir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
@@ -276,50 +300,50 @@ netfilter-persistent reload
 # download script
 cd /usr/bin
 # menu
-wget -O menu "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/menu.sh"
-wget -O m-vmess "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/m-vmess.sh"
-wget -O m-vless "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/m-vless.sh"
-wget -O running "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/running.sh"
-wget -O clearcache "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/clearcache.sh"
-wget -O m-ssws "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/m-ssws.sh"
-wget -O m-trojan "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/m-trojan.sh"
+wget -O menu "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/menu.sh"
+wget -O m-vmess "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/m-vmess.sh"
+wget -O m-vless "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/m-vless.sh"
+wget -O running "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/running.sh"
+wget -O clearcache "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/clearcache.sh"
+wget -O m-ssws "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/m-ssws.sh"
+wget -O m-trojan "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/m-trojan.sh"
 
 # menu ssh ovpn
-wget -O m-sshovpn "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/m-sshovpn.sh"
-wget -O usernew "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/trial.sh"
-wget -O renew "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/renew.sh"
-wget -O hapus "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/hapus.sh"
-wget -O cek "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/cek.sh"
-wget -O member "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/member.sh"
-wget -O delete "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/delete.sh"
-wget -O autokill "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/autokill.sh"
-wget -O ceklim "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/ceklim.sh"
-wget -O tendang "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/tendang.sh"
+wget -O m-sshovpn "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/m-sshovpn.sh"
+wget -O usernew "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/trial.sh"
+wget -O renew "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/renew.sh"
+wget -O hapus "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/hapus.sh"
+wget -O cek "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/cek.sh"
+wget -O member "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/member.sh"
+wget -O delete "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/delete.sh"
+wget -O autokill "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/autokill.sh"
+wget -O ceklim "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/ceklim.sh"
+wget -O tendang "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/tendang.sh"
 
 # menu system
-wget -O m-system "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/m-system.sh"
-wget -O m-domain "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/m-domain.sh"
-wget -O add-host "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/add-host.sh"
-wget -O port-change "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/port/port-change.sh"
-wget -O certv2ray "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/xray/certv2ray.sh"
-wget -O m-webmin "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/m-webmin.sh"
-wget -O speedtest "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/speedtest_cli.py"
-wget -O about "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/about.sh"
-wget -O auto-reboot "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/auto-reboot.sh"
-wget -O restart "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/restart.sh"
-wget -O bw "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/menu/bw.sh"
+wget -O m-system "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/m-system.sh"
+wget -O m-domain "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/m-domain.sh"
+wget -O add-host "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/add-host.sh"
+wget -O port-change "https://raw.githubusercontent.com/arismaramar/helvpn/main/port/port-change.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/arismaramar/helvpn/main/xray/certv2ray.sh"
+wget -O m-webmin "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/m-webmin.sh"
+wget -O speedtest "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/speedtest_cli.py"
+wget -O about "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/about.sh"
+wget -O auto-reboot "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/auto-reboot.sh"
+wget -O restart "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/restart.sh"
+wget -O bw "https://raw.githubusercontent.com/arismaramar/helvpn/main/menu/bw.sh"
 
 # change port
-wget -O port-ssl "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/port/port-ssl.sh"
-wget -O port-ovpn "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/port/port-ovpn.sh"
-wget -O port-tr "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/port/port-tr.sh"
+wget -O port-ssl "https://raw.githubusercontent.com/arismaramar/helvpn/main/port/port-ssl.sh"
+wget -O port-ovpn "https://raw.githubusercontent.com/arismaramar/helvpn/main/port/port-ovpn.sh"
+wget -O port-tr "https://raw.githubusercontent.com/arismaramar/helvpn/main/port/port-tr.sh"
 
 
-wget -O xp "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/xp.sh"
-wget -O asu "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/asu.sh"
+wget -O xp "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/xp.sh"
+wget -O asu "https://raw.githubusercontent.com/arismaramar/helvpn/main/asu.sh"
 
-wget -O sshws "https://raw.githubusercontent.com/HelgaIlham/helvpn/main/ssh/sshws.sh"
+wget -O sshws "https://raw.githubusercontent.com/arismaramar/helvpn/main/ssh/sshws.sh"
 
 chmod +x menu
 chmod +x m-vmess
