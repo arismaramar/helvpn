@@ -247,16 +247,16 @@ gg="AM"
 fi
 curl -sS ifconfig.me > /etc/myipvps
 #install backup
-curl https://rclone.org/install.sh | bash
-printf "q\n" | rclone config
-wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/arismaramar/scriptws/main/backup/rclone.conf"
-git clone  https://github.com/magnific0/wondershaper.git
-cd wondershaper
-make install
-cd
-rm -rf wondershaper
-echo > /home/limit
-apt install msmtp-mta ca-certificates bsd-mailx -y
+#curl https://rclone.org/install.sh | bash
+#printf "q\n" | rclone config
+#wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/arismaramar/scriptws/main/backup/rclone.conf"
+#git clone  https://github.com/magnific0/wondershaper.git
+#cd wondershaper
+#make install
+#cd
+#rm -rf wondershaper
+#echo > /home/limit
+#apt install msmtp-mta ca-certificates bsd-mailx -y
 cat << EOF > /etc/msmtprc
 defaults
 tls on
