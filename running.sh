@@ -1,7 +1,7 @@
 #!/bin/bash
 # Welcome Information
 # Edition : Stable Edition V1.0
-# Author  : Yth helga
+# Author  : anggun-vpn
 # (C) Copyright 2021-2022 By Helga
 # =========================================
 
@@ -132,8 +132,8 @@ clear;clear;clear
 
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
 echo -e "                ${YELLOW}(${NC}${GREEN} STATUS SERVICE INFORMATION ${NC}${YELLOW})${NC}"
-echo -e "         OWNER : ${GREEN}Helga Vpn ${NC}${YELLOW}(${NC} ${GREEN}Helga ${NC}${YELLOW})${NC}"
-echo -e "       © Copyright By Helga ${YELLOW}(${NC} 2021-2022 ${YELLOW})${NC}"
+echo -e "         OWNER : ${GREEN}anggun Vpn ${NC}${YELLOW}(${NC} ${GREEN}Helga ${NC}${YELLOW})${NC}"
+echo -e "       © rbuilt ${YELLOW}(${NC} 2021-2022 ${YELLOW})${NC}"
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
 echo ""
 echo -e "${RED_BG}                     System Information                    ${NC}"
