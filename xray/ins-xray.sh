@@ -55,35 +55,9 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 
 
 ## crt xray
-#systemctl stop nginx
-#mkdir /root/.acme.sh
-#curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
-#chmod +x /root/.acme.sh/acme.sh
-#/root/.acme.sh/acme.sh --upgrade --auto-upgrade
-#/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-#/root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
-#~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
-
-#wget -O acme.sh https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh
-#bash acme.sh --install
-#rm acme.sh
-#cd .acme.sh
-#echo "starting...., Port 80 Akan di resume Proses install Cert"
-#bash acme.sh --register-account -m novi.cahyo.r@gmail.com
-#bash acme.sh --issue --standalone -d $domain --force
-#bash acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key
-
-# Install Certificate xray
-curl https://get.acme.sh | sh
-ufw disable >/dev/null 2>&1
-systemctl stop nginx >/dev/null 2>&1
-~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-~/.acme.sh/acme.sh --register-account -m netz@$domain
-~/.acme.sh/acme.sh --issue -d $domain --standalone --server letsencrypt
-~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
-# Timpa Text
-
-
+systemctl stop nginx
+mkdir /root/.acme.sh
+wget -O certxray.sh https://raw.githubusercontent.com/arismaramar/supreme/aio/xray/certxray.sh && chmod +x certxray.sh && ./certxray.sh
 
 # nginx renew ssl
 echo -n '#!/bin/bash
